@@ -2,8 +2,16 @@ package com.shubham.AssetManagementSystem.Entity;
 
 import java.util.Date;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Assets {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long assetId;
 	private String assetName;
 	private String assetType;
