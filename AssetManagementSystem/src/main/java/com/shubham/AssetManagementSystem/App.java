@@ -6,7 +6,6 @@ import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import com.shubham.AssetManagementSystem.Util.AssetEntity;
 
 import jakarta.validation.ConstraintViolation;
@@ -15,12 +14,11 @@ import jakarta.validation.Validator;
 
 public class App {
 	
-    public static void main(String[] args)  {
-         System.out.println("Hello World!");
-      	
-	   	 Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+	public App() {
+		
+		  Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 	        
-	   	 AssetEntity assetEntity = new AssetEntity();
+	   	  AssetEntity assetEntity = new AssetEntity();
 	
 	   try {
 		   		System.out.println("Enter the Asset Name :");
@@ -76,6 +74,42 @@ public class App {
 		   System.out.println("Error: " + ex.getMessage());
 	
 	   }      
+		
+		
+	}
+	
+    public static void main(String[] args)  {
+   
+      	
+	   System.out.println("!!!! Welcom to Asset Management System !!!! \n");
+	   
+	   
+	   int a ;
+	   
+	   do {
+		   
+		   System.out.println("1. AddNewAsset \n2. ViewAllAsset \n3. Exit  \n\nEnter Your choice :");
+		   int Choice = HibernateCom.getScanner().nextInt();
+		   
+		   switch (Choice) {
+			case 1: 
+				 new App();
+				break;
+			case 2:
+				 new ViewAllAsset();
+				break;
+			case 3: 
+				System.exit(3);
+				break;
+			default:
+				System.out.println("Your No is Invalid please Enter the Valid No :");		
+		}
+		  
+		System.out.println("Continue to Enter  1/yes 0/no : ");
+		a = HibernateCom.getScanner().nextInt();
+	 	  		
+	} while (a != 0);
+         
  }
 	   	
 }
