@@ -1,20 +1,18 @@
 package com.shubham.AssetManagementSystem;
 
 import java.util.List;
-
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import com.shubham.AssetManagementSystem.Util.AssetEntity;
 
 public class ViewAllAsset {
 	
-	public ViewAllAsset() {
+	public void viewAsset() {
 		
 			Session session = null ;
 		
 		try {
-			
-		
 				session = HibernateCom.getSessionFactoryInstance().openSession();
 				
 				String hql = "FROM AssetEntity";
@@ -22,7 +20,6 @@ public class ViewAllAsset {
 				Query<AssetEntity> query = 	session.createQuery(hql,AssetEntity.class);
 				
 				List<AssetEntity> assetEntity = query.getResultList();
-				
 				
 				for(AssetEntity assetEntity2 : assetEntity) {
 					
@@ -34,11 +31,16 @@ public class ViewAllAsset {
 					
 				}
 				
-				System.out.println("View Asset Sucessfully !!");
+				System.out.println("View Asset Sucessfully !!");		
 				
-				
-			  } catch (Exception e) {
+			 } catch (HibernateException ex) {
+				 
+		          System.out.println("Hibernate error .. " + ex.getMessage());
+		          
+		      }catch (Exception e) {
+		    	  
 		          System.out.println("Error while fetching assets: " + e.getMessage());
+		          
 		      } finally {
 		          if (session != null) {
 		              session.close();
