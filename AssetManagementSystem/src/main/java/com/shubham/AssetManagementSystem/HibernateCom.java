@@ -32,7 +32,7 @@ public class HibernateCom {
 		
 		if(simpleDateFormat == null) {
 			
-			simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		}
 		return simpleDateFormat;
 		

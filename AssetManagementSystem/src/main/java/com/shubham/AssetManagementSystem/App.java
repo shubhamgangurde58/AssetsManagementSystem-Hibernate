@@ -23,7 +23,7 @@ public class App {
 				new UpdateAsset().updateAssetById();
 				break;
 			case 4:
-				//new DeleteAsset().deleteAssetById();
+				new DeleteAsset().deleteAssetById();
 				break;
 			case 5: 
 				System.exit(Choice);

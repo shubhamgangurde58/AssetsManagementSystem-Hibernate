@@ -17,6 +17,8 @@ public class UpdateAsset {
 	public void updateAssetById()  {
 		
 		try {
+			
+			new ViewAllAsset().viewAsset();
 		
 			session = HibernateCom.getSessionFactoryInstance().openSession();
 			System.out.println("Enter the Asset Id for Update the Asset :");
